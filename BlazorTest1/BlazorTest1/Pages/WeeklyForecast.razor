@@ -1,0 +1,30 @@
+﻿@page "/weeklyforecast"
+@using BlazorTest1.Data.ApiData
+@using BlazorTest1.Services
+
+<h3>WeeklyForecast</h3>
+@if (root != null)
+{
+    <div class="d-flex">
+        @foreach (var item in Enumerable.Range(1, 5))
+        {
+            <div class="card bg-light" style="width:12rem">
+                <div class="card-body text-center">
+                    <span class="h1 oi oi-rain"></span>
+                    <h1 class="card-title">@root.daily[item].temp.morn C</h1>
+                    <p class="card-text">
+                        @root.daily[item].weather[0].description
+                    </p>
+                </div>
+            </div>
+        }
+
+    </div>
+}
+else
+{
+    <p><em>Loading...</em></p>
+}
+
+
+
